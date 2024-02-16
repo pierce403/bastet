@@ -3,6 +3,15 @@ body {
     color: #f4e087;
     font-family: 'Times New Roman', serif;
 }
+/* Normal link */
+a {
+    color: #f4e087;
+}
+
+/* Visited link */
+a:visited {
+    color: #c2a759; /* darker shade of the normal link color */
+}
 
 .container {
     max-width: 1200px;
