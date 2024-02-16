@@ -12,4 +12,4 @@ This is the cave of Bastet, which controls how crystals get minted. This may swi
 
 # BastetVault
 
-This is the where the funds get collected. For the most part, funds should come in through the tribute function, and exit through the blessings function, and all funds at rest should be stored as cUSDC, which is USDC staked in the Compount v3 staking contract. This contract will also start with emergency functions for rescuing funds sent to it incorrectly, and an emergency mode to exit the USDC being used as the principal (which should not be accessible via blessings).
+This is the where the funds get collected. For the most part, funds should come in through the tribute function, and exit through the blessings function, and all funds at rest should be stored as cUSDC, which is USDC staked in the Compount v3 staking contract. This contract will also start with emergency functions for rescuing funds sent to it incorrectly, and an emergency mode to exit the USDC being used as the principal (which should not be accessible via blessings). Not currently deployed.
