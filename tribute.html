@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Tribute to Bastet</title>
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
 </head>
+
 <body>
     <div class="container">
         <main>
@@ -15,10 +17,27 @@
                 <p>Connect your wallet and mint a Bastet NFT to show your tribute.</p>
                 <button id="connectWallet">Connect Wallet</button>
                 <button id="allowCave">Allow Cave</button>
-                <button id="mintNFT" disabled>Mint NFT</button>
+            </section>
+
+            <!-- NFT Purchase Section with Table -->
+            <section class="nft-purchase">
+                <h2>Buy NFTs</h2>
+                <table id="nft-table">
+                    <thead>
+                        <tr>
+                            <th>Crystal</th>
+                            <th>Tribute</th>
+                            <th>Claim</th>
+                        </tr>
+                    </thead>
+                    <tbody id="nft-list">
+                        <!-- NFT items will be added here dynamically -->
+                    </tbody>
+                </table>
             </section>
         </main>
     </div>
     <script src="tribute.js"></script>
 </body>
+
 </html>
