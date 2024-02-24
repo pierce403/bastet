@@ -10,6 +10,9 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 // import BastetCrystal
 //import "./BastetCrystal.sol";
 
+// import IERC20
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
 // simple interface for BastetCrystal
 interface IBastetCrystal {
     function mint(address account, uint256 id, uint256 amount, bytes memory data) external;
@@ -17,9 +20,11 @@ interface IBastetCrystal {
     function vault() external view returns (address);
 }
 
-// CompoundFinance interface, supplyFrom(address,address,address,uint256)
+// Comet interface, supplyFrom(address,address,address,uint)
 interface ICompoundFinance {
-    function supplyFrom(address from, address dst, address asst, uint256 amount) external returns (uint256);
+    function supply(address asst, uint amount) external;
+    function supplyTo(address dst, address asst, uint amount) external;
+    function supplyFrom(address from, address dst, address asst, uint amount) external;
 }   
 
 // Contract to allow users to purchase BastetCrystal NFTs with USDC
@@ -56,7 +61,7 @@ contract BastetCave is ReentrancyGuard {
         address bastetVaultAddress = IBastetCrystal(bastetCrystalAddress).vault();
 
         // supply from sender to vault, remember 6 decimals for USDC
-        ICompoundFinance(compoundAddress).supplyFrom(msg.sender, bastetVaultAddress, USDCAddress, currentPrice*1000000);
+        ICompoundFinance(compoundAddress).supplyFrom(msg.sender,bastetVaultAddress, USDCAddress, currentPrice*1000000);
 
         // mint the BastetCrystal NFT
         IBastetCrystal(bastetCrystalAddress).mint(msg.sender, _id, 1, "");
@@ -89,5 +94,10 @@ contract BastetCave is ReentrancyGuard {
 
         mintCount.push(0);
         tributeTotalByOrgId.push(0);
+    }
+
+    // function to get the vault address
+    function getVaultAddress() public view returns (address) {
+        return IBastetCrystal(bastetCrystalAddress).vault();
     }
 }
