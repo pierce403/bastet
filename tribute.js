@@ -31,7 +31,7 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
     usdcContract = new ethers.Contract(usdcContractAddress, compoundContractABI, signer);
     //console.log('Contract:', contract);
 
-    document.getElementById('mintNFT').disabled = false;
+    //document.getElementById('mintNFT').disabled = false;
 
     // refresh prices
     refreshPrices();
