@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- List out the current stats of the vault contract -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Treasury</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <!-- Vault Statistics -->
+            <section class="vault-stats">
+                <h2>Vault Statistics</h2>
+                <p>View the current statistics of the vault contract.</p>
+                <table id="vault-table">
+                    <thead>
+                        <tr>
+                            <th>Statistic</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vault-list">
+                        <!-- Vault stats will be added here dynamically -->
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Deposit and Withdraw -->
+            <section class="deposit-withdraw">
+                <h2>Deposit and Withdraw</h2>
+                <p>Deposit or withdraw your assets from the vault.</p>
+                <form id="deposit-form">
+                    <label for="deposit-amount">Deposit Amount:</label>
+                    <input type="number" id="deposit-amount" name="deposit-amount" min="0" required>
+                    <button type="submit">Deposit</button>
+                </form>
+                <form id="withdraw-form">
+                    <label for="withdraw-amount">Withdraw Amount:</label>
+                    <input type="number" id="withdraw-amount" name="withdraw-amount" min="0" required>
+                    <button type="submit">Withdraw</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="treasury.js"></script>
+</body>
+
+</html>
