@@ -25,15 +25,23 @@ interface IComet {
     function withdrawFrom(address from, address dst, address asst, uint amount) external;
 }
 
+// Functions for claiming COMP
+//    function claim(address comet, address src, bool shouldAccrue) external {
+//    function claimTo(address comet, address src, address to, bool shouldAccrue) external 
+//    mapping(address => mapping(address => uint)) public rewardsClaimed;
+interface ICometRewards {
+    function claim(address comet, address src, bool shouldAccrue) external;
+    function claimTo(address comet, address src, address to, bool shouldAccrue) external;
+    function rewardsClaimed(address, address) external view returns (uint);
+}
+
 // Contract to hold cUSDC funds and distribute interest
 // tributes come in from the cave contract
 // blessings go out
 contract BastetVault is Ownable {
-    // the USDC contract address
     address public USDCAddress = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174; 
-    // the BastetCrystal contract address
-    address public compoundAddress = 0xF25212E676D1F7F89Cd72fFEe66158f541246445;
-    //address public BastetVaultAddress;
+    address public cometAddress = 0xF25212E676D1F7F89Cd72fFEe66158f541246445;
+    address public cometRewardsAddress = 0x45939657d1CA34A8FA39A924B71D28Fe8431e581;
 
     // address of the treasurer
     address public treasurer;
@@ -87,7 +95,7 @@ contract BastetVault is Ownable {
         require(_amount <= availableBlessings(), "not enough blessings");
 
         // send blessings (using widrawTo)
-        IComet(compoundAddress).withdrawTo(_to, compoundAddress, _amount);
+        IComet(compoundAddress).withdrawTo(_to, USDCAddress, _amount);
 
         // update totalBlessings
         totalBlessings += _amount;
@@ -141,5 +149,14 @@ contract BastetVault is Ownable {
     // return number of patrons
     function patronCount() public view returns (uint256) {
         return patrons.length;
+    }
+
+    // use claimTo to send COMP tokens to treasurer
+    function claimComp() public {
+        ICometRewards(cometRewardsAddress).claimTo(cometAddress, address(this), treasurer, true);
+    }
+
+    function compClaimed() public view returns (uint256) {
+        return ICometRewards(cometRewardsAddress).rewardsClaimed(cometAddress, address(this));
     }
 }
