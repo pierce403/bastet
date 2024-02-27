@@ -2,7 +2,7 @@
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 // Contract details
-const contractAddress = "0x7349a2b2e9f8eB65d3638CCC2B8E88ADFEF28420";
+const contractAddress = "0x66D6E14BE2FEFDB44bcd1F4B578c86eF76002Ab3";
 const contractABI = [
     // Include the ABI for totalBalance, totalPrincipal, and availableBlessings
     "function totalBalance() view returns (uint256)",

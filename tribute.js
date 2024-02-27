@@ -3,7 +3,7 @@ let signer;
 let contract;
 
 const caveContractAddress = "0x58CC95808f1f220e0634bbD13cA8B4f55acFd606";
-const vaultContractAddress = "0x7349a2b2e9f8eB65d3638CCC2B8E88ADFEF28420";
+const vaultContractAddress = "0x66D6E14BE2FEFDB44bcd1F4B578c86eF76002Ab3";
 const compoundContractAddress = "0xF25212E676D1F7F89Cd72fFEe66158f541246445";
 const greenSkull = "0x45038C6bEfdD712784cb380e0573Bd09C23091A8";
 const usdcContractAddress = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174";
