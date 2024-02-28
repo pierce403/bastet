@@ -66,6 +66,11 @@ nav ul li {
     /* Adjust spacing between page links */
 }
 
+/* make sure the icons are well padded */
+.nav-icons {
+    padding: 0 20px;
+}
+
 .nav-icons a {
     margin-left: 10px;
     /* Adjust spacing between icons */
