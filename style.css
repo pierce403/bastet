@@ -3,6 +3,7 @@ body {
     color: #f4e087;
     font-family: 'Times New Roman', serif;
 }
+
 /* Normal link */
 a {
     color: #f4e087;
@@ -10,7 +11,8 @@ a {
 
 /* Visited link */
 a:visited {
-    color: #c2a759; /* darker shade of the normal link color */
+    color: #c2a759;
+    /* darker shade of the normal link color */
 }
 
 .container {
@@ -31,7 +33,8 @@ header {
     margin: 0 auto;
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #c49b63;
 }
 
@@ -42,4 +45,35 @@ section {
 footer {
     text-align: center;
     padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 2;
+    padding: 2;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+    /* Adjust spacing between page links */
+}
+
+.nav-icons a {
+    margin-left: 10px;
+    /* Adjust spacing between icons */
+    /*color: white; */
+    text-decoration: none;
+}
+
+.nav-icons a i {
+    font-size: 18px;
+    /* Adjust icon size */
 }

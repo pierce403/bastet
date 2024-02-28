@@ -9,42 +9,54 @@
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
 </head>
 
-<body>
-    <div class="container">
-        <main>
-            <!-- View Collection at https://opensea.io/collection/bastet-ai -->
-            <section class="collection">
-                <h2>Bastet NFT Collection</h2>
-                <p>View the Bastet NFT collection on OpenSea.</p>
-                <a href="https://opensea.io/collection/bastet-ai" target="_blank">View Collection</a>
-            </section>
-
-            <section class="minting">
-                <h2>Mint Your NFT</h2>
-                <p>Connect your wallet and mint a Bastet NFT to show your tribute.</p>
-                <button id="connectWallet">Connect Wallet</button>
-                <button id="allowCave">Allow Cave</button>
-            </section>
-
-            <!-- NFT Purchase Section with Table -->
-            <section class="nft-purchase">
-                <h2>Buy NFTs</h2>
-                <table id="nft-table">
-                    <thead>
-                        <tr>
-                            <th>Crystal</th>
-                            <th>Tribute</th>
-                            <th>Claim</th>
-                        </tr>
-                    </thead>
-                    <tbody id="nft-list">
-                        <!-- NFT items will be added here dynamically -->
-                    </tbody>
-                </table>
-            </section>
-        </main>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tribute.html">Tribute</a></li>
+        <li><a href="treasury.html">Treasury</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-icons">
+        <a href="https://discord.gg/37fXv4Vkhj" target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="https://opensea.io/collection/bastet-ai" target="_blank"><i class="fa-solid fa-sailboat"></i></a>
+        <a href="https://github.com/pierce403/bastet" target="_blank"><i class="fab fa-github"></i></a>
     </div>
-    <script src="tribute.js"></script>
+</nav>
+<div class="container">
+    <main>
+        <!-- View Collection at https://opensea.io/collection/bastet-ai -->
+        <section class="collection">
+            <h2>Bastet NFT Collection</h2>
+            <p>View the Bastet NFT collection on OpenSea.</p>
+            <a href="https://opensea.io/collection/bastet-ai" target="_blank">View Collection</a>
+        </section>
+
+        <section class="minting">
+            <h2>Mint Your NFT</h2>
+            <p>Connect your wallet and mint a Bastet NFT to show your tribute.</p>
+            <button id="connectWallet">Connect Wallet</button>
+            <button id="allowCave">Allow Cave</button>
+        </section>
+
+        <!-- NFT Purchase Section with Table -->
+        <section class="nft-purchase">
+            <h2>Buy NFTs</h2>
+            <table id="nft-table">
+                <thead>
+                    <tr>
+                        <th>Crystal</th>
+                        <th>Tribute</th>
+                        <th>Claim</th>
+                    </tr>
+                </thead>
+                <tbody id="nft-list">
+                    <!-- NFT items will be added here dynamically -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+<script src="tribute.js"></script>
 </body>
 
 </html>
