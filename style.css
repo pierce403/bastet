@@ -104,6 +104,12 @@ footer {
     .container {
         padding: 10px;
     }
+
+    .nav-icons {
+        order: 2;
+        width: 100%;
+        text-align: right;
+    }
 }
 
 /* Icons Adjustment */
