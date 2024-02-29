@@ -1,50 +1,54 @@
 body {
     background-color: #0a0a0a;
     color: #f4e087;
+    /* Use relative font size for responsiveness */
     font-family: 'Times New Roman', serif;
+    font-size: 1rem;
+    /* Default font size for medium devices */
 }
 
-/* Normal link */
+/* Responsive Typography */
+/* Adjust base font size based on device width */
+html {
+    font-size: 100%;
+    /* default 16px */
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 90%;
+        /* reduce to 14.4px on small devices */
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 80%;
+        /* reduce to 12.8px on very small devices */
+    }
+}
+
+/* Links */
 a {
     color: #f4e087;
+    /* Increase padding for easier clickability on touch devices */
+    padding: 8px;
 }
 
-/* Visited link */
 a:visited {
     color: #c2a759;
-    /* darker shade of the normal link color */
 }
 
+/* Layout Containers */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Header and Navigation */
 header {
     text-align: center;
-    padding: 50px 0;
-}
-
-.bastet-image {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-h1,
-h2 {
-    color: #c49b63;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px 0;
 }
 
 nav {
@@ -66,19 +70,124 @@ nav ul li {
     /* Adjust spacing between page links */
 }
 
-/* make sure the icons are well padded */
-.nav-icons {
-    padding: 0 20px;
+/* Responsive Images */
+.bastet-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
+/* Sections */
+section {
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Media Queries for adjusting layout on smaller screens */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        /* Adjust spacing for stacked navigation links */
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Icons Adjustment */
 .nav-icons a {
-    margin-left: 10px;
+    margin-right: 10px;
     /* Adjust spacing between icons */
-    /*color: white; */
     text-decoration: none;
 }
 
 .nav-icons a i {
-    font-size: 18px;
-    /* Adjust icon size */
+    font-size: 1.2em;
+    /* Adjust icon size relatively */
+}
+
+/* Responsive Video Embeds */
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    position: relative;
+    height: 0;
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 560px;
+    /* Adjust based on the video size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Video Embeds inside the Modal */
+.modal-content iframe {
+    width: 100%;
+    height: 315px;
+    /* Adjust based on the video size */
 }
