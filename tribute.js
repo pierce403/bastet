@@ -94,6 +94,9 @@ async function refreshPrices() {
     const orgs = ["Ethereum", "Google", "Amazon", "Apple", "Microsoft"];
     const nftList = document.getElementById('nft-list');
 
+    // unhide the table
+    nftList.hidden = false;
+
     for (let i = 0; i < orgs.length; i++) {
         const org = orgs[i];
         const nftRow = document.createElement('tr');
