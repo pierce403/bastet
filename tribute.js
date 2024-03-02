@@ -20,11 +20,32 @@ const compoundContractABI = [
     "function approve(address spender, uint256 amount) public returns (bool)",
 ];
 
+const messageBox = document.getElementById('messageBox');
+messageBox.innerText = "Please connect your wallet to continue.";
+
+// check if the wallet is already connected
+if (window.ethereum.selectedAddress) {
+
+    // disable the connect wallet button
+    document.getElementById('connectWallet').disabled = true;
+
+    // inform the user
+    messageBox.innerText = "Wallet already connected.";
+}
 
 document.getElementById('connectWallet').addEventListener('click', async () => {
+
+    // set "connecting..." message
+    messageBox.innerText = "Connecting...";
+
+    // request access to the user's wallet
     await provider.send("eth_requestAccounts", []);
 
-    signer = provider.getSigner();
+    // set connected message
+    messageBox.innerText = "Wallet connected.";
+
+    // get signer
+    signer = await provider.getSigner();
     console.log('Address:', signer.getAddress());
     caveContract = new ethers.Contract(caveContractAddress, caveContractABI, signer);
     compoundContract = new ethers.Contract(compoundContractAddress, compoundContractABI, signer);
@@ -35,18 +56,6 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
 
     // refresh prices
     refreshPrices();
-});
-
-document.getElementById('mintNFT').addEventListener('click', async () => {
-    try {
-        console.log('Minting NFT for signer:', signer.getAddress());
-        const tx = await caveContract.tribute(1);
-        await tx.wait();
-        alert('NFT Minted Successfully!');
-    } catch (error) {
-        console.error(error);
-        alert('Failed to mint NFT.');
-    }
 });
 
 // callback for setting an allowance for the contract

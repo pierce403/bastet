@@ -114,7 +114,7 @@ footer {
 
 /* Icons Adjustment */
 .nav-icons a {
-    margin-right: 10px;
+    margin-right: 2px;
     /* Adjust spacing between icons */
     text-decoration: none;
 }
@@ -196,4 +196,12 @@ footer {
     width: 100%;
     height: 315px;
     /* Adjust based on the video size */
+}
+
+.message-box {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
 }
