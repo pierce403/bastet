@@ -1,4 +1,4 @@
-const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+const provider = new ethers.providers.Web3Provider(window.ethereum);
 let signer;
 let contract;
 
@@ -24,13 +24,34 @@ const messageBox = document.getElementById('messageBox');
 messageBox.innerText = "Please connect your wallet to continue.";
 
 // check if the wallet is already connected
-if (window.ethereum.selectedAddress) {
+async function checkIfWalletIsConnected() {
+    const accounts = await provider.listAccounts();
+    if (accounts.length > 0) {
+        // print the number of connected networks
+        console.log('Connected:', accounts.length);
+        // print the connected networks
+        console.log('Connected:', accounts);
+        return true;
+    }
+    return false;
+}
+checkIfWalletIsConnected
 
-    // disable the connect wallet button
-    document.getElementById('connectWallet').disabled = true;
+async function checkIfPolygon() {
+    const network = await provider.getNetwork();
+    console.log('Network:', network);
+    if (network.chainId !== 137) {
+        //alert('Please connect to the Polygon network.');
 
-    // inform the user
-    messageBox.innerText = "Wallet already connected.";
+        // request the user to switch to the Polygon network
+        await window.ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: '0x89' }], // '0x89' is the hexadecimal chain ID for the Polygon mainnet
+        });
+
+        return false;
+    }
+    return true;
 }
 
 document.getElementById('connectWallet').addEventListener('click', async () => {
@@ -40,6 +61,13 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
 
     // request access to the user's wallet
     await provider.send("eth_requestAccounts", []);
+
+    // After connecting, check if the user is on Polygon
+    const isPolygon = await checkIfPolygon();
+    if (!isPolygon) {
+        messageBox.innerText = "Please switch to the Polygon network.";
+        return; // Stop further execution if not on Polygon
+    }
 
     // set connected message
     messageBox.innerText = "Wallet connected.";
@@ -96,7 +124,6 @@ async function refreshPrices() {
 
     // unhide the table  called nft-table
     document.getElementById('nft-table').hidden = false;
-
 
     for (let i = 0; i < orgs.length; i++) {
         const org = orgs[i];
