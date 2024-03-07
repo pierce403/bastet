@@ -137,17 +137,16 @@ async function refreshPrices() {
         nftRow.innerHTML = `
             <td>${org}</td>
             <td><span id="${org.toLowerCase()}-price">$${mintCount}</span></td>
-            <td><button onclick="buyNFT('${org.toLowerCase()}')">Claim ${org} Crystal</button></td>
+            <td><button onclick="buyNFT('${org.toLowerCase()}')">Claim ${i} Crystal</button></td>
         `;
         nftList.appendChild(nftRow);
     }
 }
 
 // buy NFT function (using tribute(i))
-async function buyNFT(org) {
+async function buyNFT(orgId) {
     try {
         console.log('Buying NFT for signer:', signer.getAddress());
-        const orgId = org === "ethereum" ? 0 : org === "google" ? 1 : org === "amazon" ? 2 : org === "apple" ? 3 : 4;
         const tx = await caveContract.tribute(orgId);
         await tx.wait();
         alert('NFT Minted Successfully!');
