@@ -166,5 +166,8 @@ async function buyNFT(orgId) {
 async function checkUSDCBalance() {
     const balance = await usdcContract.balanceOf(signer.getAddress());
     console.log('USDC Balance:', balance.toString());
-    messageBox.innerText = `Wallet Connected. USDC Balance: ${balance.toString()}`;
+
+    const cleanBalance = ethers.utils.formatUnits(balance.toString(), 6);
+
+    messageBox.innerText = `Wallet Connected. USDC Balance: ${cleanBalance}`;
 }
