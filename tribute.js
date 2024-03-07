@@ -150,6 +150,7 @@ async function buyNFT(orgId) {
         const tx = await caveContract.tribute(orgId);
         await tx.wait();
         alert('NFT Minted Successfully!');
+        messageBox.innerText = "NFT Minted Successfully! Make sure to go to Discord and activate Collab.Land to get access to the private channels.";
     } catch (error) {
         console.error(error);
         alert('Failed to mint NFT.');
