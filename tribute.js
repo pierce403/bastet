@@ -120,7 +120,7 @@ document.getElementById('allowCave').addEventListener('click', async () => {
 
 // function to refresh the prices on trubute page
 async function refreshPrices() {
-    const orgs = ["Ethereum", "Google", "Amazon", "Apple", "Microsoft"];
+    const orgs = ["Ethereum", "Google", "Microsoft", "Apple", "Amazon"];
     const nftList = document.getElementById('nft-list');
 
     // unhide the table  called nft-table
