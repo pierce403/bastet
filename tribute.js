@@ -95,7 +95,7 @@ document.getElementById('allowCave').addEventListener('click', async () => {
         const maxint = ethers.BigNumber.from(2).pow(256).sub(1);
 
         //const tx1 = await usdcContract.approve(compoundContractAddress,maxint);
-        const tx1 = await usdcContract.approve(caveAddress,maxint);
+        const tx1 = await usdcContract.approve(caveContractAddress,maxint);
         await tx1.wait();
         //alert('approve success');
 
