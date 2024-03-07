@@ -84,6 +84,9 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
 
     // refresh prices
     refreshPrices();
+
+    // put USDC balance in message box
+    checkUSDCBalance();
 });
 
 // callback for setting an allowance for the contract
@@ -155,4 +158,11 @@ async function buyNFT(orgId) {
         console.error(error);
         alert('Failed to mint NFT.');
     }
+}
+
+// check USDC balance of user
+async function checkUSDCBalance() {
+    const balance = await usdcContract.balanceOf(signer.getAddress());
+    console.log('USDC Balance:', balance.toString());
+    messageBox.innerText = `Wallet Connected. USDC Balance: ${balance.toString()}`;
 }
