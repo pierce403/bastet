@@ -15,9 +15,11 @@ const caveContractABI = [
     "function getPrice(uint256 id) public view returns (uint256)",
 ];
 
+// erc20 and a few other fancy things
 const compoundContractABI = [
     "function allow(address manager, bool allowed) public returns (bool)",
     "function approve(address spender, uint256 amount) public returns (bool)",
+    "function balanceOf(address account) public view returns (uint256)",
 ];
 
 const messageBox = document.getElementById('messageBox');
