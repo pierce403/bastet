@@ -137,7 +137,7 @@ async function refreshPrices() {
         nftRow.innerHTML = `
             <td>${org}</td>
             <td><span id="${org.toLowerCase()}-price">$${mintCount}</span></td>
-            <td><button onclick="buyNFT('${org.toLowerCase()}')">Claim ${i} Crystal</button></td>
+            <td><button onclick="buyNFT('${i}')">Claim ${org} Crystal</button></td>
         `;
         nftList.appendChild(nftRow);
     }
