@@ -94,8 +94,8 @@ document.getElementById('allowCave').addEventListener('click', async () => {
         // set type(uint256).max as the allowance (lame)
         const maxint = ethers.BigNumber.from(2).pow(256).sub(1);
 
-        //const tx1 = await usdcContract.approve(compoundContractAddress,maxint);
-        const tx1 = await usdcContract.approve(caveContractAddress,maxint);
+        const tx1 = await usdcContract.approve(compoundContractAddress, maxint);
+        //const tx1 = await usdcContract.approve(caveContractAddress,maxint);
         await tx1.wait();
         //alert('approve success');
 
