@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Tribute to Bastet</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tribute.html">Tribute</a></li>
+            <li><a href="treasury.html">Treasury</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="https://discord.gg/37fXv4Vkhj" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://opensea.io/collection/bastet-ai" target="_blank"><i class="fa-solid fa-sailboat"></i></a>
+            <a href="https://github.com/pierce403/bastet" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </nav>
+    <div id="messageBox" class="message-box">Please Enable JavaScript</div>
+    <div class="container">
+        <main>
+            <section class="minting">
+                <button id="connectWallet">Connect Wallet</button>
+                <button id="allowCave">Set Allowance</button>
+            </section>
+
+            <!-- NFT Purchase Section with Table -->
+            <section class="nft-purchase">
+                <h2>Crystal Collection</h2>
+                Pay tribute to Baset by collecting crystals for organizations that you rely on for their security. All
+                funds raised will go towards funding researchers working to make you safer. Crystal holders get access
+                to special channels in Discord (after activating Collab.Land integration).
+
+                <br><br>
+                <table id="nft-table" hidden="true">
+                    <thead>
+                        <tr>
+                            <th>Crystal</th>
+                            <th>Tribute</th>
+                            <th>Claim</th>
+                        </tr>
+                    </thead>
+                    <tbody id="nft-list">
+                        <!-- NFT items will be added here dynamically -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="tribute.js"></script>
+</body>
+
+</html>
