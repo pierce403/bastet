@@ -5,6 +5,13 @@
   "compatibility_date": "2026-09-30",
   "workers_dev": true,
   "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "bastet.ai",
+      "custom_domain": true,
+      "zone_id": "048469a55c190930b5bf4105307aad2b"
+    }
+  ],
   "assets": {
     "directory": "./dist",
     "html_handling": "auto-trailing-slash",

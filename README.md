@@ -36,7 +36,9 @@ npm run dev
 
 Connect `pierce403/bastet` to the `bastet` Worker in Workers Builds. Use repository root `/`, production branch `main`, build command `npm run build`, deploy command `npm run deploy`, and preview command `npm run deploy:preview`. No application secrets or database bindings are needed. `.nvmrc` selects Node.js 22 for builds.
 
-The initial configuration deploys to `workers.dev` for verification. After checking the preview, add the `bastet.ai` custom domain to the Wrangler configuration and deploy it. Keep the GitHub Pages deployment and its `CNAME` available until the Cloudflare custom domain has been verified. Workers logs and traces are enabled for any Worker execution; direct static asset responses do not run application code.
+Workers Builds is not connected yet. Until the Cloudflare GitHub app is installed and this repository is connected, deploy manually from an up-to-date `main` checkout with `npm ci && npm run deploy`. GitHub Actions validates builds and retains an artifact but does not publish the site.
+
+The Wrangler configuration attaches `bastet.ai` to the Worker and also enables `workers.dev` and version preview URLs. The GitHub Pages deployment and its `CNAME` remain available for rollback. Workers logs and traces are enabled for any Worker execution; direct static asset responses do not run application code.
 
 ## Security model
 
